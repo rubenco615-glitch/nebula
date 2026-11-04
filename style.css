@@ -1,398 +1,181 @@
-* {
-    box-sizing: border-box;
+/* === NÉBULA — Portfolio de Arte Digital === */
+
+/* 1. Variables y tema */
+:root {
+    color-scheme: dark;
+    --bg: #080e18;
+    --card: #101b29;
+    --border: #26364a;
+    --txt: #f0f5fb;
+    --dim: #b5c4d0;
+    --red: #ff6b98;
+    --blue: #77d9ec;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* 2. Reset y base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     margin: 0;
-    background-color: #080e18;
-    color: #f0f5fb;
+    background-color: var(--bg);
+    color: var(--txt);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
 }
+a { color: inherit; }
 
-a {
-    color: inherit;
-}
-
-figure {
-    margin: 0;
-}
-
-.contenedor {
-    width: min(1120px, calc(100% - 3rem));
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Accesibilidad */
 .boton-saltar {
-    position: absolute;
-    top: -5rem;
-    left: 1rem;
-    padding: 0.6rem 1rem;
-    background-color: #ffffff;
-    color: #000000;
-    z-index: 100;
-    text-decoration: none;
-    font-weight: 700;
+    position: absolute; top: -5rem; left: 1rem;
+    padding: .5rem 1rem; background: #fff; color: #000;
+    font-weight: bold; text-decoration: none; z-index: 100;
 }
+.boton-saltar:focus { top: .7rem; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 
-.boton-saltar:focus {
-    top: 0.7rem;
-}
+/* Contenedor principal */
+.contenedor { width: min(1080px, calc(100% - 2.5rem)); margin-inline: auto; }
 
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid #77d9ec;
-    outline-offset: 4px;
+/* 3. Tipografía y botones */
+.etiqueta-portada, .etiqueta-seccion {
+    font-size: .78rem; font-weight: 800; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--blue); margin: 0 0 .5rem;
 }
-
-.etiqueta-seccion {
-    color: #ff6b98;
-    font-size: 0.83rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-.etiqueta-portada {
-    color: #77d9ec;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin: 0 0 1rem;
-}
+.etiqueta-portada { color: var(--red); }
 
 .boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 0.85rem 1.35rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    background-color: #ff6b98;
-    color: #14121e;
-    transition: transform 0.2s, background-color 0.2s;
+    display: inline-flex; gap: .5rem; align-items: center;
+    padding: .75rem 1.3rem; border-radius: 6px;
+    font-weight: 700; text-decoration: none;
+    background: var(--red); color: #14121e;
+    transition: transform .2s, background-color .2s;
 }
+.boton:hover { transform: translateY(-2px); background-color: #ff93b4; }
 
-.boton:hover {
-    transform: translateY(-2px);
-    background-color: #ff93b4;
-}
-
+/* 4. Cabecera y Navegación */
 .cabecera {
-    position: relative;
-    z-index: 5;
-    border-bottom: 1px solid #29374a;
-    background-color: rgba(8, 14, 24, 0.93);
+    position: sticky; top: 0; z-index: 20;
+    border-bottom: 1px solid var(--border);
+    background-color: rgba(8, 14, 24, .92);
+    backdrop-filter: blur(8px);
 }
-
 .navegacion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 86px;
-    gap: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    min-height: 72px; gap: 1.5rem;
 }
-
 .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    text-decoration: none;
-    font-weight: 800;
-    letter-spacing: 0.24em;
-    font-size: 1.25rem;
+    display: inline-flex; align-items: center; gap: .7rem;
+    text-decoration: none; font-weight: 800; letter-spacing: .2em; font-size: 1.2rem;
 }
+.logo img { width: 44px; height: 44px; }
+.menu-enlaces { display: flex; gap: 1.5rem; }
+.menu-enlaces a { text-decoration: none; color: #c5d6e2; font-size: .9rem; transition: color .2s; }
+.menu-enlaces a:hover { color: var(--red); }
 
-.logo img {
-    width: 54px;
-    height: 54px;
-}
-
-.menu-enlaces {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.menu-enlaces a {
-    text-decoration: none;
-    color: #c5d6e2;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-}
-
-.menu-enlaces a:hover {
-    color: #ff6b98;
-}
-
-.portada {
-    padding: 5rem 0;
-    border-bottom: 1px solid #1f3043;
-}
-
+/* 5. Portada (Hero) */
+.portada { padding: 4rem 0; border-bottom: 1px solid var(--border); }
 .portada-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    align-items: center;
-    gap: 3.5rem;
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    align-items: center; gap: 3rem;
 }
-
 .portada-texto h1 {
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
-    line-height: 1.1;
-    letter-spacing: -0.05em;
-    margin: 0 0 1.2rem;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.15; letter-spacing: -.04em; margin: 0 0 1rem;
 }
+.portada-texto h1 span { color: var(--red); }
+.texto-destacado { font-size: clamp(1rem, 1.3vw, 1.15rem); color: #c6d3df; margin: 0 0 1.8rem; }
 
-.portada-texto h1 span {
-    color: #ff6b98;
-}
-
-.texto-destacado {
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: #c6d3df;
-    margin: 0 0 2rem;
-}
-
+/* Imagen de portada: tamaño equilibrado */
+.portada-imagen { margin: 0; max-width: 440px; justify-self: center; }
 .portada-imagen img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid #293d54;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    display: block; width: 100%; height: auto;
+    max-height: 340px; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 10px; border: 1px solid #293d54;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
 }
+.portada-imagen figcaption { font-size: .72rem; color: #8e9ea9; margin-top: .5rem; text-align: right; }
+.portada-imagen figcaption a { color: var(--dim); }
 
-.portada-imagen figcaption {
-    font-size: 0.72rem;
-    color: #8e9ea9;
-    margin-top: 0.6rem;
-    text-align: right;
-}
-
-.portada-imagen figcaption a {
-    color: #b5c4d0;
-}
-
-.seccion {
-    padding: 6rem 0;
-}
-
+/* 6. Secciones y encabezados */
+.seccion { padding: 4.5rem 0; }
 .seccion-cabecera {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 2rem; margin-bottom: 2rem;
 }
+.seccion h2 { margin: 0; font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -.03em; }
+.seccion-descripcion { color: var(--dim); margin: 0; max-width: 500px; }
 
-.seccion h2 {
-    margin: 0.15rem 0;
-    font-size: clamp(2rem, 5vw, 3.8rem);
-    letter-spacing: -0.045em;
-    line-height: 1.13;
-}
-
-.seccion-descripcion {
-    color: #b5c4d0;
-    max-width: 610px;
-}
-
-.galeria-obras {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.3rem;
-}
-
+/* 7. Galería de Obras (Tarjetas) */
+.galeria-obras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
 .tarjeta-obra {
-    background-color: #101b29;
-    border: 1px solid #26364a;
-    border-radius: 9px;
-    overflow: hidden;
+    margin: 0; background-color: var(--card);
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
 }
-
 .tarjeta-obra img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    display: block; width: 100%; height: 180px;
+    object-fit: cover; transition: transform .3s ease;
 }
-
-.tarjeta-obra figcaption {
-    padding: 1.15rem;
-}
-
-.tarjeta-obra h3 {
-    margin: 0;
-    font-size: 1.08rem;
-}
-
+.tarjeta-obra:hover img { transform: scale(1.03); }
+.tarjeta-obra figcaption { padding: 1rem; }
+.tarjeta-obra h3 { margin: 0; font-size: 1rem; }
 .etiqueta-obra {
-    display: inline-block;
-    color: #fbb1c7;
-    border: 1px solid #8e5069;
-    border-radius: 20px;
-    padding: 0.15rem 0.55rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.7rem;
+    display: inline-block; color: #fbb1c7;
+    border: 1px solid #8e5069; border-radius: 20px;
+    padding: .15rem .5rem; font-size: .68rem; margin-bottom: .5rem;
 }
 
-.multimedia {
-    background-color: #101a27;
-    border-top: 1px solid #233449;
-    border-bottom: 1px solid #233449;
-}
-
+/* 8. Multimedia (Vídeo y Audio) */
+.multimedia { background-color: #0d1521; border-block: 1px solid var(--border); }
 .multimedia-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 3.2rem;
-    align-items: center;
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem; align-items: center;
 }
-
+.multimedia figure { margin: 0; }
 .multimedia video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #090e19;
-    object-fit: cover;
-    border: 1px solid #354558;
-    border-radius: 8px;
+    display: block; width: 100%; max-height: 280px;
+    aspect-ratio: 16 / 9; object-fit: cover;
+    border-radius: 8px; border: 1px solid #354558;
 }
-
 .caja-audio {
-    border: 1px solid #31435a;
-    background-color: #111f30;
-    padding: 1.5rem;
-    border-radius: 8px;
+    border: 1px solid #31435a; background-color: #111f30;
+    padding: 1.25rem; border-radius: 8px;
 }
+.caja-audio h3 { margin: .4rem 0 1rem; font-size: 1.1rem; }
+.caja-audio audio { width: 100%; }
 
-.caja-audio audio {
-    width: 100%;
-    margin-top: 1.15rem;
-}
-
-.contacto {
-    padding: 7rem 0;
-    text-align: center;
-}
-
-.contacto h2 {
-    max-width: 750px;
-    margin: 0 auto 1rem;
-}
-
-.contacto p {
-    color: #b5c4d0;
-    margin: 0 auto 2rem;
-    max-width: 590px;
-}
-
+/* 9. Contacto */
+.contacto { text-align: center; }
+.contacto h2 { max-width: 650px; margin: 0 auto .8rem; }
+.contacto p { color: var(--dim); max-width: 540px; margin: 0 auto 1.8rem; }
 .banner-contacto {
-    display: block;
-    max-width: 660px;
-    width: 100%;
-    margin: 0 auto;
-    border: 1px solid #2f5365;
-    border-radius: 8px;
-    overflow: hidden;
+    max-width: 420px; margin: 0 auto;
+    border-radius: 8px; overflow: hidden; border: 1px solid #2f5365;
 }
+.banner-contacto img { display: block; width: 100%; height: auto; }
 
-.banner-contacto img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
+/* 10. Pie de página */
 .pie-pagina {
-    border-top: 1px solid #2a364a;
-    color: #a5b4c2;
-    font-size: 0.81rem;
-    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    color: #a5b4c2; font-size: .8rem; padding: 1.8rem 0;
 }
+.pie-pagina .contenedor { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.pie-pagina a { color: #d2e2ee; }
 
-.pie-pagina .contenedor {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.pie-pagina a {
-    color: #d2e2ee;
-}
-
+/* 11. Responsive */
 @media (max-width: 780px) {
-    .navegacion {
-        flex-direction: column;
-        padding: 1rem 0;
-    }
-
-    .portada-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .multimedia-grid {
-        grid-template-columns: 1fr;
-        gap: 1.4rem;
-    }
-
-    .galeria-obras {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .seccion {
-        padding: 4rem 0;
-    }
-
-    .seccion-cabecera {
-        display: block;
-    }
+    .navegacion { flex-direction: column; padding: 1rem 0; }
+    .portada-grid, .multimedia-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .portada-imagen { max-width: 100%; }
+    .galeria-obras { grid-template-columns: repeat(2, 1fr); }
+    .seccion { padding: 3.5rem 0; }
+    .seccion-cabecera { display: block; }
 }
-
-@media (max-width: 540px) {
-    .portada {
-        padding: 3rem 0;
-    }
-
-    .contenedor {
-        width: min(100% - 2rem, 1120px);
-    }
-
-    .galeria-obras {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-enlaces {
-        justify-content: center;
-        font-size: 0.85rem;
-    }
+@media (max-width: 520px) {
+    .contenedor { width: min(100% - 1.8rem, 1080px); }
+    .galeria-obras { grid-template-columns: 1fr; }
+    .menu-enlaces { justify-content: center; font-size: .85rem; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition: none !important;
-        animation: none !important;
-    }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
 }

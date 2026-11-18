@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nébula — arte digital desde otros mundos</title>
-    <meta name="description" content="Portfolio de Nébula, artista digital de ciencia ficción.">
+    <title>Nébula — Arte digital</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,11 +12,9 @@
 
     <a class="boton-saltar" href="#contenido">Saltar al contenido</a>
 
-    <!-- Cabecera y menú -->
+    <!-- Cabecera y logo SVG -->
     <header class="cabecera">
-        <nav class="contenedor navegacion" aria-label="Navegación principal">
-
-            <!-- Logo SVG dentro del HTML -->
+        <nav class="contenedor navegacion">
             <a class="logo" href="#inicio">
                 <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
                     <circle class="planeta" cx="50" cy="50" r="25" />
@@ -26,7 +23,6 @@
                 </svg>
                 <span>NÉBULA</span>
             </a>
-
             <div class="menu-enlaces">
                 <a href="#galeria">Obras</a>
                 <a href="#universo">Universo</a>
@@ -49,7 +45,6 @@
                     </p>
                     <a class="boton" href="#galeria">Explorar la galería ↗</a>
                 </div>
-
                 <figure class="portada-imagen">
                     <img src="assets/img/portada.webp" alt="Explorador ante montañas y monolitos alienígenas">
                     <figcaption>
@@ -60,7 +55,7 @@
             </div>
         </section>
 
-        <!-- Galería original -->
+        <!-- Galería interactiva -->
         <section class="seccion" id="galeria">
             <div class="contenedor">
                 <div class="seccion-cabecera">
@@ -71,10 +66,23 @@
                     <p class="seccion-descripcion">Tres escenarios, una misma expedición.</p>
                 </div>
 
+                <!-- Imagen principal -->
+                <figure class="visor">
+                    <img id="imagen-principal" src="assets/img/santuario-suspendido.webp"
+                        alt="Cubo suspendido en una caverna alienígena">
+                    <figcaption id="titulo-principal" aria-live="polite">
+                        El santuario suspendido
+                    </figcaption>
+                </figure>
+
+                <!-- Miniaturas de la galería -->
                 <div class="galeria-obras">
+
                     <figure class="tarjeta-obra">
-                        <img src="assets/img/santuario-suspendido.webp"
-                            alt="Cubo suspendido dentro de una caverna alienígena">
+                        <button class="miniatura" type="button" aria-pressed="true">
+                            <img src="assets/img/santuario-suspendido.webp"
+                                alt="Cubo suspendido en una caverna alienígena">
+                        </button>
                         <figcaption>
                             <span class="etiqueta-obra">01 / Arquitectura</span>
                             <h3>El santuario suspendido</h3>
@@ -82,7 +90,9 @@
                     </figure>
 
                     <figure class="tarjeta-obra">
-                        <img src="assets/img/mareas-del-vacio.webp" alt="Océano oscuro con rayos y cubos flotantes">
+                        <button class="miniatura" type="button" aria-pressed="false">
+                            <img src="assets/img/mareas-del-vacio.webp" alt="Océano oscuro con cubos flotantes">
+                        </button>
                         <figcaption>
                             <span class="etiqueta-obra">02 / Tormenta</span>
                             <h3>Las mareas del vacío</h3>
@@ -90,12 +100,15 @@
                     </figure>
 
                     <figure class="tarjeta-obra">
-                        <img src="assets/img/aurora-sobre-el-hielo.webp" alt="Paisaje nevado con auroras verdes">
+                        <button class="miniatura" type="button" aria-pressed="false">
+                            <img src="assets/img/aurora-sobre-el-hielo.webp" alt="Paisaje nevado con auroras verdes">
+                        </button>
                         <figcaption>
                             <span class="etiqueta-obra">03 / Exploración</span>
                             <h3>Aurora sobre el hielo</h3>
                         </figcaption>
                     </figure>
+
                 </div>
             </div>
         </section>
@@ -138,10 +151,8 @@
             <div class="contenedor">
                 <p class="etiqueta-seccion">03 / Conectar</p>
                 <h2>¿Te gustaría descubrir un mundo nuevo?</h2>
-                <p>
-                    Colaboraciones, proyectos visuales e ideas que todavía
-                    no tienen forma: todas las historias empiezan con una conversación.
-                </p>
+                <p>Colaboraciones, proyectos visuales e ideas que todavía
+                    no tienen forma: todas las historias empiezan con una conversación.</p>
                 <div class="banner-contacto">
                     <img src="assets/img/contacto.webp" alt="Portal luminoso rojo y azul">
                 </div>
@@ -158,6 +169,8 @@
         </div>
     </footer>
 
+    <!-- JavaScript de la galería -->
+    <script src="script.js"></script>
 </body>
 
 </html>

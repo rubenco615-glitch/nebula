@@ -51,7 +51,8 @@ a {
     top: .7rem;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
     outline: 3px solid var(--blue);
     outline-offset: 4px;
 }
@@ -131,7 +132,7 @@ a:focus-visible {
     color: var(--red);
 }
 
-/* Logo SVG interactivo */
+/* Logo SVG interactivo del apartado 1 */
 .logo svg {
     transition: transform .3s;
 }
@@ -152,7 +153,6 @@ a:focus-visible {
     fill: white;
 }
 
-/* Cambia el logo al pasar el ratón o usar Tab */
 .logo:hover svg,
 .logo:focus-visible svg {
     transform: scale(1.1);
@@ -237,7 +237,35 @@ a:focus-visible {
     color: var(--dim);
 }
 
-/* Galería original */
+/* Visor principal de la galería */
+.visor {
+    margin: 0 0 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.visor img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+.visor img.cambiando {
+    opacity: 0;
+}
+
+.visor figcaption {
+    padding: 1rem;
+    font-weight: bold;
+}
+
+/* Miniaturas interactivas */
 .galeria-obras {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -252,7 +280,18 @@ a:focus-visible {
     overflow: hidden;
 }
 
-.tarjeta-obra img {
+.miniatura {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.miniatura img {
     display: block;
     width: 100%;
     height: 180px;
@@ -260,8 +299,19 @@ a:focus-visible {
     transition: transform .3s;
 }
 
-.tarjeta-obra:hover img {
-    transform: scale(1.03);
+.miniatura:hover img,
+.miniatura:focus-visible img {
+    transform: scale(1.06);
+}
+
+.miniatura[aria-pressed="true"] {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+}
+
+.miniatura:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: -3px;
 }
 
 .tarjeta-obra figcaption {

@@ -14,7 +14,7 @@
 
     <!-- Cabecera y logo SVG -->
     <header class="cabecera">
-        <nav class="contenedor navegacion">
+        <nav class="contenedor navegacion" aria-label="Navegación principal">
             <a class="logo" href="#inicio">
                 <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
                     <circle class="planeta" cx="50" cy="50" r="25" />
@@ -75,7 +75,7 @@
                     </figcaption>
                 </figure>
 
-                <!-- Miniaturas de la galería -->
+                <!-- Miniaturas -->
                 <div class="galeria-obras">
 
                     <figure class="tarjeta-obra">
@@ -108,12 +108,11 @@
                             <h3>Aurora sobre el hielo</h3>
                         </figcaption>
                     </figure>
-
                 </div>
             </div>
         </section>
 
-        <!-- Vídeo y audio originales -->
+        <!-- Sección multimedia -->
         <section class="seccion multimedia" id="universo">
             <div class="contenedor">
                 <div class="seccion-cabecera">
@@ -127,13 +126,17 @@
                 </div>
 
                 <div class="multimedia-grid">
-                    <figure>
-                        <video controls preload="none" poster="assets/img/video-poster.webp" playsinline>
-                            <source src="assets/video/presentacion.mp4" type="video/mp4">
-                            Tu navegador no puede reproducir este vídeo.
-                        </video>
-                    </figure>
 
+                    <!-- Botón para abrir el vídeo -->
+                    <div class="caja-video">
+                        <h3>Reel de Nébula</h3>
+                        <p>Descubre los escenarios de otros mundos.</p>
+                        <button class="boton" id="abrir-video" type="button">
+                            Ver Reel de Animación
+                        </button>
+                    </div>
+
+                    <!-- Audio original -->
                     <div class="caja-audio">
                         <span class="etiqueta-seccion">Sonido / Espacio</span>
                         <h3>Frecuencias del vacío</h3>
@@ -161,6 +164,15 @@
 
     </main>
 
+    <!-- Ventana modal del vídeo -->
+    <dialog id="modal-video" class="modal-video" aria-label="Reel de animación">
+        <button id="cerrar-video" class="cerrar-video" type="button" aria-label="Cerrar vídeo">✕</button>
+        <video id="video-reel" controls playsinline preload="none" poster="assets/img/video-poster.webp">
+            <source src="assets/video/presentacion.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este vídeo.
+        </video>
+    </dialog>
+
     <!-- Pie de página -->
     <footer class="pie-pagina">
         <div class="contenedor">
@@ -169,7 +181,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript de la galería -->
     <script src="script.js"></script>
 </body>
 

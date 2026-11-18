@@ -31,6 +31,11 @@ a {
     color: inherit;
 }
 
+button {
+    cursor: pointer;
+    font: inherit;
+}
+
 .contenedor {
     width: min(1080px, calc(100% - 2.5rem));
     margin: auto;
@@ -61,18 +66,21 @@ button:focus-visible {
 .boton {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 44px;
     padding: .75rem 1.3rem;
+    border: 0;
     border-radius: 6px;
     background: var(--red);
     color: #14121e;
     font-weight: bold;
     text-decoration: none;
-    transition: transform .2s;
+    transition: transform .2s, background .2s;
 }
 
 .boton:hover {
     transform: translateY(-2px);
+    background: #ff93b4;
 }
 
 .etiqueta-portada,
@@ -132,7 +140,7 @@ button:focus-visible {
     color: var(--red);
 }
 
-/* Logo SVG interactivo del apartado 1 */
+/* Logo SVG interactivo */
 .logo svg {
     transition: transform .3s;
 }
@@ -237,7 +245,7 @@ button:focus-visible {
     color: var(--dim);
 }
 
-/* Visor principal de la galería */
+/* Galería interactiva */
 .visor {
     margin: 0 0 2rem;
     background: var(--card);
@@ -265,7 +273,6 @@ button:focus-visible {
     font-weight: bold;
 }
 
-/* Miniaturas interactivas */
 .galeria-obras {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -328,7 +335,7 @@ button:focus-visible {
     font-size: .72rem;
 }
 
-/* Vídeo y audio originales */
+/* Sección multimedia */
 .multimedia {
     background: #0d1521;
     border-block: 1px solid var(--border);
@@ -341,19 +348,7 @@ button:focus-visible {
     align-items: center;
 }
 
-.multimedia figure {
-    margin: 0;
-}
-
-.multimedia video {
-    display: block;
-    width: 100%;
-    max-height: 280px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
+.caja-video,
 .caja-audio {
     padding: 1.25rem;
     border: 1px solid #31435a;
@@ -361,8 +356,542 @@ button:focus-visible {
     border-radius: 8px;
 }
 
+.caja-video p {
+    color: var(--dim);
+}
+
 .caja-audio audio {
     width: 100%;
+}
+
+/* Ventana modal del vídeo */
+.modal-video {
+    width: min(800px, 90%);
+    padding: 50px 15px 15px;
+    background: var(--card);
+    color: var(--txt);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+}
+
+.modal-video::backdrop {
+    background: rgba(0, 0, 0, .85);
+}
+
+.modal-video video {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+}
+
+.cerrar-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+}
+
+.cerrar-video:hover {
+    color: var(--red);
+}
+
+/* Contacto */
+.contacto {
+    text-align: center;
+}
+
+.contacto h2 {
+    max-width: 650px;
+    margin: 0 auto .8rem;
+}
+
+.contacto p {
+    color: var(--dim);
+    max-width: 540px;
+    margin: 0 auto 1.8rem;
+}
+
+.banner-contacto {
+    max-width: 420px;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.banner-contacto img {
+    display: block;
+    width: 100%;
+}
+
+/* Pie de página */
+.pie-pagina {
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--border);
+    color: #a5b4c2;
+    font-size: .8rem;
+}
+
+.pie-pagina .contenedor {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Diseño para tablet */
+@media (max-width: 780px) {
+    .navegacion {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    .portada-grid,
+    .multimedia-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-obras {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .seccion-cabecera {
+        display: block;
+    }
+}
+
+/* Diseño para móvil */
+@media (max-width: 520px) {
+    .galeria-obras {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-enlaces {
+        gap: 1rem;
+    }
+
+    .seccion {
+        padding: 3rem 0;
+    }
+}
+
+/* Reduce las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* Colores principales */
+:root {
+    color-scheme: dark;
+    --bg: #080e18;
+    --card: #101b29;
+    --border: #26364a;
+    --txt: #f0f5fb;
+    --dim: #b5c4d0;
+    --red: #ff6b98;
+    --blue: #77d9ec;
+}
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--txt);
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+}
+
+.contenedor {
+    width: min(1080px, calc(100% - 2.5rem));
+    margin: auto;
+}
+
+/* Accesibilidad */
+.boton-saltar {
+    position: absolute;
+    top: -5rem;
+    left: 1rem;
+    padding: .5rem 1rem;
+    background: white;
+    color: black;
+    z-index: 100;
+}
+
+.boton-saltar:focus {
+    top: .7rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+/* Botones y etiquetas */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: .75rem 1.3rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--red);
+    color: #14121e;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform .2s, background .2s;
+}
+
+.boton:hover {
+    transform: translateY(-2px);
+    background: #ff93b4;
+}
+
+.etiqueta-portada,
+.etiqueta-seccion {
+    font-size: .78rem;
+    font-weight: bold;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--blue);
+}
+
+.etiqueta-portada {
+    color: var(--red);
+}
+
+/* Cabecera y navegación */
+.cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 14, 24, .92);
+}
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 72px;
+    gap: 1.5rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    font-weight: bold;
+    letter-spacing: .2em;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.menu-enlaces {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.menu-enlaces a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: none;
+    color: #c5d6e2;
+}
+
+.menu-enlaces a:hover {
+    color: var(--red);
+}
+
+/* Logo SVG interactivo */
+.logo svg {
+    transition: transform .3s;
+}
+
+.planeta {
+    fill: #8366e8;
+    transition: fill .3s;
+}
+
+.orbita {
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 4;
+    transition: stroke .3s;
+}
+
+.estrella {
+    fill: white;
+}
+
+.logo:hover svg,
+.logo:focus-visible svg {
+    transform: scale(1.1);
+}
+
+.logo:hover .planeta,
+.logo:focus-visible .planeta {
+    fill: var(--red);
+}
+
+.logo:hover .orbita,
+.logo:focus-visible .orbita {
+    stroke: white;
+}
+
+/* Portada */
+.portada {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.portada-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.portada h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+}
+
+.portada h1 span {
+    color: var(--red);
+}
+
+.texto-destacado {
+    color: #c6d3df;
+    margin-bottom: 1.8rem;
+}
+
+.portada-imagen {
+    margin: 0;
+    max-width: 440px;
+}
+
+.portada-imagen img {
+    width: 100%;
+    max-height: 340px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.portada-imagen figcaption {
+    font-size: .72rem;
+    color: var(--dim);
+    text-align: right;
+}
+
+/* Secciones */
+.seccion {
+    padding: 4.5rem 0;
+}
+
+.seccion-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.seccion h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin: 0;
+}
+
+.seccion-descripcion {
+    color: var(--dim);
+}
+
+/* Galería interactiva */
+.visor {
+    margin: 0 0 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.visor img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+.visor img.cambiando {
+    opacity: 0;
+}
+
+.visor figcaption {
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.galeria-obras {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.tarjeta-obra {
+    margin: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.miniatura {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.miniatura img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.miniatura:hover img,
+.miniatura:focus-visible img {
+    transform: scale(1.06);
+}
+
+.miniatura[aria-pressed="true"] {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+}
+
+.miniatura:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: -3px;
+}
+
+.tarjeta-obra figcaption {
+    padding: 1rem;
+}
+
+.tarjeta-obra h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.etiqueta-obra {
+    color: #fbb1c7;
+    font-size: .72rem;
+}
+
+/* Sección multimedia */
+.multimedia {
+    background: #0d1521;
+    border-block: 1px solid var(--border);
+}
+
+.multimedia-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.caja-video,
+.caja-audio {
+    padding: 1.25rem;
+    border: 1px solid #31435a;
+    background: #111f30;
+    border-radius: 8px;
+}
+
+.caja-video p {
+    color: var(--dim);
+}
+
+.caja-audio audio {
+    width: 100%;
+}
+
+/* Ventana modal del vídeo */
+.modal-video {
+    width: min(800px, 90%);
+    padding: 50px 15px 15px;
+    background: var(--card);
+    color: var(--txt);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+}
+
+.modal-video::backdrop {
+    background: rgba(0, 0, 0, .85);
+}
+
+.modal-video video {
+    display: block;
+    width: 100%;
+    max-height: 75vh;
+}
+
+.cerrar-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+}
+
+.cerrar-video:hover {
+    color: var(--red);
 }
 
 /* Contacto */

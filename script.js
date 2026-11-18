@@ -54,3 +54,37 @@ modal.addEventListener("close", () => {
     video.pause();
     video.currentTime = 0;
 });
+
+/* Reproductor de audio */
+const audio = document.querySelector("#audio-ambiente");
+const botonAudio = document.querySelector("#boton-audio");
+const botonSilencio = document.querySelector("#boton-silencio");
+
+// Reproduce o pausa el audio
+botonAudio.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().catch(() => {
+            botonAudio.textContent = "No se pudo reproducir";
+        });
+    } else {
+        audio.pause();
+    }
+});
+
+// Cambia el texto del botón
+audio.addEventListener("play", () => {
+    botonAudio.textContent = "Pausar ambiente";
+});
+audio.addEventListener("pause", () => {
+    botonAudio.textContent = "Escuchar ambiente espacial";
+});
+audio.addEventListener("ended", () => {
+    botonAudio.textContent = "Escuchar ambiente espacial";
+});
+
+// Silencia o activa el sonido
+botonSilencio.addEventListener("click", () => {
+    audio.muted = !audio.muted;
+    botonSilencio.textContent = audio.muted ? "Activar sonido" : "Silenciar";
+    botonSilencio.setAttribute("aria-pressed", String(audio.muted));
+});

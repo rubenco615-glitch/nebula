@@ -79,7 +79,8 @@
                 <div class="galeria-obras">
 
                     <figure class="tarjeta-obra">
-                        <button class="miniatura" type="button" aria-pressed="true">
+                        <button class="miniatura" type="button" aria-pressed="true"
+                            aria-label="Ver El santuario suspendido">
                             <img src="assets/img/santuario-suspendido.webp"
                                 alt="Cubo suspendido en una caverna alienígena">
                         </button>
@@ -90,7 +91,8 @@
                     </figure>
 
                     <figure class="tarjeta-obra">
-                        <button class="miniatura" type="button" aria-pressed="false">
+                        <button class="miniatura" type="button" aria-pressed="false"
+                            aria-label="Ver Las mareas del vacío">
                             <img src="assets/img/mareas-del-vacio.webp" alt="Océano oscuro con cubos flotantes">
                         </button>
                         <figcaption>
@@ -100,7 +102,8 @@
                     </figure>
 
                     <figure class="tarjeta-obra">
-                        <button class="miniatura" type="button" aria-pressed="false">
+                        <button class="miniatura" type="button" aria-pressed="false"
+                            aria-label="Ver Aurora sobre el hielo">
                             <img src="assets/img/aurora-sobre-el-hielo.webp" alt="Paisaje nevado con auroras verdes">
                         </button>
                         <figcaption>
@@ -127,7 +130,7 @@
 
                 <div class="multimedia-grid">
 
-                    <!-- Botón para abrir el vídeo -->
+                    <!-- Botón del vídeo -->
                     <div class="caja-video">
                         <h3>Reel de Nébula</h3>
                         <p>Descubre los escenarios de otros mundos.</p>
@@ -136,14 +139,23 @@
                         </button>
                     </div>
 
-                    <!-- Audio original -->
+                    <!-- Audio con botones personalizados -->
                     <div class="caja-audio">
                         <span class="etiqueta-seccion">Sonido / Espacio</span>
                         <h3>Frecuencias del vacío</h3>
-                        <audio controls preload="none">
+
+                        <audio id="audio-ambiente" preload="none">
                             <source src="assets/audio/ambiente-nebula.mp3" type="audio/mpeg">
-                            Tu navegador no puede reproducir audio.
                         </audio>
+
+                        <div class="controles-audio">
+                            <button class="boton" id="boton-audio" type="button">
+                                Escuchar ambiente espacial
+                            </button>
+                            <button class="boton" id="boton-silencio" type="button" aria-pressed="false">
+                                Silenciar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

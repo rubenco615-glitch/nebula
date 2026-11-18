@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nébula — arte digital desde otros mundos</title>
-    <meta name="description"
-        content="Portfolio de Nébula, artista digital ficticia que imagina paisajes de ciencia ficción. Explora tres mundos, su vídeo de presentación y una atmósfera sonora.">
-    <meta name="theme-color" content="#080e18">
+    <meta name="description" content="Portfolio de Nébula, artista digital de ciencia ficción.">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,13 +13,20 @@
 
     <a class="boton-saltar" href="#contenido">Saltar al contenido</a>
 
+    <!-- Cabecera y menú -->
     <header class="cabecera">
         <nav class="contenedor navegacion" aria-label="Navegación principal">
+
+            <!-- Logo SVG dentro del HTML -->
             <a class="logo" href="#inicio">
-                <img src="assets/img/logo.svg" alt="Logotipo de Nébula: planeta con órbitas geométricas" width="54"
-                    height="54" loading="lazy">
+                <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
+                    <circle class="planeta" cx="50" cy="50" r="25" />
+                    <ellipse class="orbita" cx="50" cy="50" rx="43" ry="17" transform="rotate(-30 50 50)" />
+                    <circle class="estrella" cx="83" cy="17" r="4" />
+                </svg>
                 <span>NÉBULA</span>
             </a>
+
             <div class="menu-enlaces">
                 <a href="#galeria">Obras</a>
                 <a href="#universo">Universo</a>
@@ -32,27 +37,30 @@
 
     <main id="contenido">
 
-        <section class="portada" id="inicio" aria-labelledby="hero-titulo">
+        <!-- Portada -->
+        <section class="portada" id="inicio">
             <div class="contenedor portada-grid">
                 <div class="portada-texto">
                     <p class="etiqueta-portada">Arte digital · Paisajes especulativos</p>
-                    <h1 id="hero-titulo">Otros <span>mundos</span> nos esperan.</h1>
-                    <p class="texto-destacado">Paisajes imposibles, arquitecturas olvidadas y una luz que atraviesa el
-                        silencio. Bienvenidos al universo visual de Nébula.</p>
-                    <a class="boton" href="#galeria">Explorar la galería <span aria-hidden="true">↗</span></a>
+                    <h1>Otros <span>mundos</span> nos esperan.</h1>
+                    <p class="texto-destacado">
+                        Paisajes imposibles, arquitecturas olvidadas y una luz
+                        que atraviesa el silencio. Bienvenidos al universo visual de Nébula.
+                    </p>
+                    <a class="boton" href="#galeria">Explorar la galería ↗</a>
                 </div>
+
                 <figure class="portada-imagen">
-                    <img src="assets/img/portada.webp"
-                        alt="Explorador solitario ante una montaña oscura con enormes monolitos alienígenas bajo una estructura que cubre el cielo"
-                        width="1920" height="2401" loading="lazy">
+                    <img src="assets/img/portada.webp" alt="Explorador ante montañas y monolitos alienígenas">
                     <figcaption>
-                        Imagen de referencia: <a href="https://unsplash.com/@iamrohitchoudhari" target="_blank"
-                            rel="noopener">Rohit Choudhari / Unsplash</a>.
+                        Imagen: <a href="https://unsplash.com/@iamrohitchoudhari" target="_blank" rel="noopener">Rohit
+                            Choudhari / Unsplash</a>.
                     </figcaption>
                 </figure>
             </div>
         </section>
 
+        <!-- Galería original -->
         <section class="seccion" id="galeria">
             <div class="contenedor">
                 <div class="seccion-cabecera">
@@ -62,29 +70,27 @@
                     </div>
                     <p class="seccion-descripcion">Tres escenarios, una misma expedición.</p>
                 </div>
+
                 <div class="galeria-obras">
                     <figure class="tarjeta-obra">
                         <img src="assets/img/santuario-suspendido.webp"
-                            alt="Cubo alienígena suspendido dentro de una caverna monumental, iluminado en rojo, con un explorador sobre un puente"
-                            width="1280" height="720" loading="lazy">
+                            alt="Cubo suspendido dentro de una caverna alienígena">
                         <figcaption>
                             <span class="etiqueta-obra">01 / Arquitectura</span>
                             <h3>El santuario suspendido</h3>
                         </figcaption>
                     </figure>
+
                     <figure class="tarjeta-obra">
-                        <img src="assets/img/mareas-del-vacio.webp"
-                            alt="Océano oscuro azotado por rayos bajo enormes cubos flotantes con luz roja, contemplados desde un acantilado"
-                            width="1280" height="720" loading="lazy">
+                        <img src="assets/img/mareas-del-vacio.webp" alt="Océano oscuro con rayos y cubos flotantes">
                         <figcaption>
                             <span class="etiqueta-obra">02 / Tormenta</span>
                             <h3>Las mareas del vacío</h3>
                         </figcaption>
                     </figure>
+
                     <figure class="tarjeta-obra">
-                        <img src="assets/img/aurora-sobre-el-hielo.webp"
-                            alt="Llanura nevada iluminada por auroras verdes, un monolito inclinado con grietas rojas y una persona caminando"
-                            width="1280" height="720" loading="lazy">
+                        <img src="assets/img/aurora-sobre-el-hielo.webp" alt="Paisaje nevado con auroras verdes">
                         <figcaption>
                             <span class="etiqueta-obra">03 / Exploración</span>
                             <h3>Aurora sobre el hielo</h3>
@@ -94,6 +100,7 @@
             </div>
         </section>
 
+        <!-- Vídeo y audio originales -->
         <section class="seccion multimedia" id="universo">
             <div class="contenedor">
                 <div class="seccion-cabecera">
@@ -101,21 +108,23 @@
                         <p class="etiqueta-seccion">02 / Audiovisual</p>
                         <h2>Un universo que respira</h2>
                     </div>
-                    <p class="seccion-descripcion">Una presentación de 12 segundos y una atmósfera sonora
-                        independiente.</p>
+                    <p class="seccion-descripcion">
+                        Una presentación de 12 segundos y una atmósfera sonora independiente.
+                    </p>
                 </div>
+
                 <div class="multimedia-grid">
                     <figure>
-                        <video controls preload="none" poster="assets/img/video-poster.webp" width="960" height="540"
-                            playsinline aria-label="Presentación animada de tres escenarios futuristas de Nébula">
+                        <video controls preload="none" poster="assets/img/video-poster.webp" playsinline>
                             <source src="assets/video/presentacion.mp4" type="video/mp4">
                             Tu navegador no puede reproducir este vídeo.
                         </video>
                     </figure>
+
                     <div class="caja-audio">
                         <span class="etiqueta-seccion">Sonido / Espacio</span>
                         <h3>Frecuencias del vacío</h3>
-                        <audio controls preload="none" aria-label="Audio ambiental de ciencia ficción de Nébula">
+                        <audio controls preload="none">
                             <source src="assets/audio/ambiente-nebula.mp3" type="audio/mpeg">
                             Tu navegador no puede reproducir audio.
                         </audio>
@@ -124,26 +133,28 @@
             </div>
         </section>
 
+        <!-- Contacto -->
         <section class="seccion contacto" id="contacto">
             <div class="contenedor">
                 <p class="etiqueta-seccion">03 / Conectar</p>
                 <h2>¿Te gustaría descubrir un mundo nuevo?</h2>
-                <p>Colaboraciones, proyectos visuales e ideas que todavía no tienen forma: todas las historias empiezan
-                    con una conversación.</p>
+                <p>
+                    Colaboraciones, proyectos visuales e ideas que todavía
+                    no tienen forma: todas las historias empiezan con una conversación.
+                </p>
                 <div class="banner-contacto">
-                    <img src="assets/img/contacto.webp"
-                        alt="Banner animado de contacto con un portal luminoso rojo y azul que pulsa" width="660"
-                        height="160" loading="lazy">
+                    <img src="assets/img/contacto.webp" alt="Portal luminoso rojo y azul">
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Pie de página -->
     <footer class="pie-pagina">
         <div class="contenedor">
             <span>© 2026 Nébula — Perfil ficticio de práctica académica.</span>
-            <span>Recursos, licencias y procesos en <a href="README.md">README.md</a>.</span>
+            <span>Recursos y licencias en <a href="README.md">README.md</a>.</span>
         </div>
     </footer>
 
